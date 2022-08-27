@@ -15,6 +15,10 @@ export default {
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
     ]
   },
+  target: 'static',
+  router: {
+    base: '/test-cart/'
+  },
 
   styleResources: {
     scss: [
