@@ -1,9 +1,13 @@
-<template>
-  <Tutorial/>
+<template lang="pug">
+  .wrapper
 </template>
 
 <script>
 export default {
-  name: 'IndexPage'
+  name: 'Index-page'
 }
 </script>
+
+<style lang="scss" scoped>
+
+</style>
