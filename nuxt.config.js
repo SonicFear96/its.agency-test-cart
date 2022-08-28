@@ -1,7 +1,7 @@
 export default {
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    title: 'its.agency-test-cart',
+    title: 'test-cart',
     htmlAttrs: {
       lang: 'en'
     },
@@ -12,7 +12,10 @@ export default {
       { name: 'format-detection', content: 'telephone=no' }
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
+      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+      { rel: 'preconnect', href: 'https://fonts.googleapis.com' },
+      { rel: 'preconnect', href: 'https://fonts.gstatic.com', crossorigin: true },
+      { rel: 'stylesheet', href: 'href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap' }
     ]
   },
   target: 'static',
@@ -22,6 +25,7 @@ export default {
 
   styleResources: {
     scss: [
+      '@/assets/scss/global/_index.scss',
       '@/assets/scss/mixins.scss'
     ]
   },
@@ -40,6 +44,7 @@ export default {
 
   // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
   buildModules: [
+    '@nuxtjs/style-resources'
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
@@ -48,5 +53,6 @@ export default {
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
+    postcss: null
   }
 }
