@@ -28,3 +28,13 @@ a {
 .wrapper {
   padding: 0 64px;
 }
+
+.basic-text {
+  font-family: $default-font;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 15px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: $basic-black;
+}
