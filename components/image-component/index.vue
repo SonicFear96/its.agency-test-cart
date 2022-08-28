@@ -1,6 +1,6 @@
 <template lang="pug">
-  .image-component.cover(v-if="path")
-    img(:src="`${imagePath}`")
+  .image-component.cover
+    img(:src="imagePath")
 </template>
 
 <script>
@@ -9,12 +9,12 @@ export default {
   props: {
     path: {
       type: String,
-      default: () => {}
-    },
+      default: ""
+    }
   },
   computed: {
     imagePath () {
-      return `${process.env.NUXT_ENV_MEDIA_BASE_URL}${this.path}`
+      return `${this.path}`
     }
   }
 }
@@ -22,8 +22,11 @@ export default {
 
 <style lang="scss" scoped>
 .image-component {
-  position: relative;
+  width: 100%;
   height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
   &.cover {
     img {
       height: 100%;
