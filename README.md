@@ -1,4 +1,4 @@
-# its.agency-test-cart
+# test-cart
 
 ## Build Setup
 
