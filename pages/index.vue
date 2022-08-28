@@ -1,10 +1,16 @@
 <template lang="pug">
   .main-page.wrapper
     .main
+      .filter
+        .filter-wrapper
+          ul.filter-wrapper
+            li.filter-item(v-for="item in filter" :key="item.id")
+              vSwitch(:value="item.active" @changeCheckbox="changeCheckbox(item)")
+              span.text-filter.basic-text(v-html="item.title")
       .catalog
         .catalog-heading
           .product-quantity.basic-text
-            span 420 товаров
+            span {{product.length}} товаров
           .product-filter.basic-text
             span сначала дорогие
         .catalog-list__wrapper
@@ -15,13 +21,29 @@
 
 <script>
 import vCard from '@/components/card'
+import vSwitch from '@/components/switcher'
 export default {
   name: 'main-page',
   components: {
-    vCard
+    vCard,
+    vSwitch
   },
   data () {
     return {
+      filter: [
+        {
+          id: 1,
+          title: 'Новинки',
+          alias: 'new',
+          active: false,
+        },
+        {
+          id: 2,
+          title: 'Есть в наличии',
+          alias: 'isStock',
+          active: false,
+        }
+      ],
       product: [
         {
           id: 1,
@@ -67,14 +89,36 @@ export default {
         },
       ]
     }
+  },
+  methods: {
+    changeCheckbox (item) {
+      item.active = !item.active
+    }
   }
 }
 </script>
 
 <style lang="scss" scoped>
   .main-page {
-    .catalog {
+    .main {
       margin-top: 70px;
+      display: flex;
+      flex-direction: row;
+      gap: 20px;
+    }
+    .filter {
+      width: calc(100% / 12 * 2);
+      .filter-wrapper {
+        list-style: none;
+      }
+      .filter-item {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+      }
+      .text-filter {
+        margin-left: 10px;
+      }
     }
     .catalog-heading {
       display: flex;
@@ -93,7 +137,7 @@ export default {
       .catalog-list__item {
         margin-bottom: 16px;
         margin-left: 20px;
-        width: calc(20% - 24px);
+        width: calc(20% - 20px);
       }
     }
   }

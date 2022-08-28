@@ -31,7 +31,7 @@ export default {
   border-bottom: 1px solid rgba($black, 0.1);
   .image {
     position: relative;
-    padding-top: 82%;
+    padding-top: 97%;
     overflow: hidden;
   }
   .title {
